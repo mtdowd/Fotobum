@@ -1,0 +1,36 @@
+
+<h1>The <%= @gallery.name %> Gallery</h1>
+
+<h3><%= @gallery.description %></h3>
+
+<br>
+
+<% @gallery.images.each do |image| %>
+  <div>
+    <%= link_to (image_tag image.url), gallery_image_path(@gallery, image) %>
+  </div>
+<% end %>
+
+<div>
+  <h4>Other options: </h4>
+  <ul>
+    <h4>
+      <li>Return to
+        <%= link_to "Gallery List", galleries_path %>
+      </li>
+      <br>
+      <li>Add an
+        <%= link_to "Image", new_gallery_image_path(@gallery) %>
+      </li>
+      <br>
+      <li>Edit the
+        <%= link_to "#{@gallery.name} Gallery", edit_gallery_path(@gallery) %>
+      </li>
+      <br>
+      <li>
+        <%= button_to "Delete Gallery", gallery_path(@gallery), method: :delete %>
+      </li>
+    </h4>
+  </ul>
+</div>
+

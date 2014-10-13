@@ -1,0 +1,23 @@
+
+<h1>Welcome to Our Photo Gallery</h1>
+
+<div>
+  <ol>
+    <h3>
+      <% @galleries.each do |gallery| %>
+        <li><%= link_to gallery.name, gallery_path(gallery) %></li>
+      <% end %>
+    </h3>
+  </ol>
+</div>
+
+<br>
+
+<div>
+  <h4>Don't want to view any of those galleries, then you can: </h4>
+  <ul>
+    <li>
+        <h4><%= link_to "Create New Gallery", new_gallery_path %></h4>
+    </li>
+  </ul>
+</div>

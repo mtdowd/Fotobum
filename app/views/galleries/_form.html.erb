@@ -1,0 +1,17 @@
+
+<%= form_for gallery, data: {confirm: "Are you sure?"} do |form| %>
+
+  <div>
+    <%= form.label :name, "Gallery Name: " %>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :description, "Gallery Description: " %>
+    <%= form.text_area :description %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
