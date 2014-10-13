@@ -2,6 +2,25 @@
 
 <%= image_tag @image.url %>
 
+<br>
+<div>
+  <%= render @image.comments.by_most_recent %>
+</div>
+
+<div>
+  <%= form_for [@image, @comment], data: {confirm: "Are you sure?"} do |form| %>
+    <div>
+    <%= form.label :content, "Comment: " %>
+    <%= form.text_area :content %>
+    </div>
+    <p> </p>
+    <div>
+    <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+
+<br>
 
 <div>
   <h4>Other options: </h4>

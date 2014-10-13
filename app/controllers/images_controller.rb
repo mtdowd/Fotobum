@@ -19,6 +19,7 @@ class ImagesController < ApplicationController
   def show
     @gallery = find_gallery
     @image = @gallery.images.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

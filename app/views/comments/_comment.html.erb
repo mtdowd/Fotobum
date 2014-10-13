@@ -1,0 +1,9 @@
+
+<div>
+  <%= comment.content %>
+</div>
+<div>
+  - Authored by: <%= comment.user.email %>; created at 
+  <%= time_ago_in_words(comment.created_at) %>
+</div>
+<p> </p>

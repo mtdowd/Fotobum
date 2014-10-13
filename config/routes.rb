@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   resources :galleries do
     resources :images
   end
+
+  resources :images, only: [] do
+    resources :comments, only: [:create]
+  end
 end
