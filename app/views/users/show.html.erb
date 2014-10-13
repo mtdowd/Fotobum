@@ -1,0 +1,16 @@
+<h1>Images for <%= @user.email %></h1>
+
+<% @user.images.each do |image| %>
+  <div>
+    <%= image_tag image.url %>
+  </div>
+<% end %>
+
+<div>
+  <ul><h4>
+    <li>Return to
+      <%= link_to "Gallery Home", galleries_path %>
+    </h4></li>
+  </ul>
+</div>
+
