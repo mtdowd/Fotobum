@@ -1,0 +1,18 @@
+<div>
+  <%= form_for group do |form| %>
+    <div>
+      <%= form.label :name, "Group Name: " %>
+      <%= form.text_field :name %>
+    </div>
+    <br>
+    <div>
+      <%= form.label :description, "Group Description: " %>
+      <%= form.text_area :description %>
+    </div>
+    <br>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+

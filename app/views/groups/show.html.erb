@@ -1,0 +1,44 @@
+<h1>The <%= @group.name %> Group</h1>
+
+<p><%= @group.description %></p>
+<br>
+<div>
+  <h4>
+    <ol>
+      <% @group.users.each do |user| %>
+        <li><%= user.email %></li>
+      <% end %>
+    </ol>
+  </h4>
+</div>
+
+<br>
+
+<div>
+  <% if @group.users.include?(current_user) %>
+    <h4>You're a member of this group!</h4>
+    <%= button_to "Leave Group", leave_group_path(@group), method: :delete %>
+    <div><h4>Other options: </h4>
+      <ul>
+        <li>
+          <h4><%= link_to "Edit Group", edit_group_path(@group) %></h4>
+        </li>
+        <li>
+          <h4><%= button_to "Delete Group", group_path(@group), method: :delete %></h4>
+        </li>
+      </ul>
+    </div>
+  <% else %>
+    <%= button_to "Join Group", join_group_path(@group), method: :post %>
+    <h4>Other options: </h4>
+  <% end %>
+</div>
+
+<div>
+  <ul>
+    <li>
+      <h4><%= link_to "Return to Groups", groups_path %></h4>
+    </li>
+  </ul>
+</div>
+

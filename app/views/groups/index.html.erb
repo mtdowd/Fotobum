@@ -1,0 +1,22 @@
+<h1>Groups</h1>
+
+<div>
+  <ol>
+    <% @groups.each do |group| %>
+      <li><%= link_to group.name, group %></li>
+    <% end %>
+  </ol>
+</div>
+
+<br>
+
+<div>
+  <h4>Other options: 
+    <ul>
+      <li><%= link_to "Create New Group", new_group_path %></li>
+      <br>
+      <li><%= link_to "Back to Home", root_path  %></li>
+    </ul>
+  </h4>
+</div>
+
