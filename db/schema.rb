@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014213419) do
+ActiveRecord::Schema.define(version: 20141016132232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 20141014213419) do
     t.datetime "updated_at"
   end
 
+  create_table "groups_images", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups_images", ["group_id"], name: "index_groups_images_on_group_id", using: :btree
+  add_index "groups_images", ["image_id"], name: "index_groups_images_on_image_id", using: :btree
+
   create_table "images", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -59,6 +69,16 @@ ActiveRecord::Schema.define(version: 20141014213419) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  create_table "likes", force: true do |t|
+    t.integer  "image_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["image_id"], name: "index_likes_on_image_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false

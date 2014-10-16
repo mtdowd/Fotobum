@@ -49,7 +49,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:name, :description, :url).merge(user: current_user)
+    params.require(:image).permit(:name, :description, :url, group_ids: []).merge(user: current_user)
   end
 
   def find_gallery

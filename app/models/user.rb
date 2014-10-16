@@ -3,7 +3,22 @@ class User < ActiveRecord::Base
   has_many :group_memberships
   has_many :groups, through: :group_memberships
   has_many :images
+  has_many :likes
+  has_many :liked_images, through: :likes, source: :image
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
+
+  def like(image)
+    liked_images << image
+  end
+
+  def unlike(image)
+    liked_images.delete(image)
+  end
+
+  def liked?(image)
+    liked_images.include? image
+  end
+
 end
